@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>belajar React Pertama</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+</head>
+<body>
+  <div id="app1" style="display: flex; justify-content: flex-end; align-items: center; height: 50vh; margin-right: 600px; margin-top: 45px;"> 
+    <script type="text/babel">
+      class Tugas1 extends React.Component {
+        render() {
+          return <h1><b><center>Vertically centered<br></br>hero sign-up form</center></b></h1>;
+        }
+      }
+      ReactDOM.render(<Tugas1 />, document.getElementById('app1')); 
+    </script>
+  </div>
+  
+  <div id="app2" style="display: flex; justify-content: center; align-items: center; height: 2px; margin-right: 280px;">
+    <script type="text/babel">
+      class Tugas2 extends React.Component {
+        render() {
+          return (
+          <p style={{ textAlign: 'left',fontSize:'20px' }}>
+          Below is an example form built entirely<br />
+          with Bootstrap’s form controls. Each<br />
+          required form group has a validation<br />
+          state that can be triggered by<br />
+          attempting to submit the form without<br />
+          completing it.
+          </p>
+);        }
+      }
+      ReactDOM.render(<Tugas2 />, document.getElementById('app2')); 
+    </script>
+
+  </div>
+  <div id="app3" style="display: flex; justify-content: flex-end; align-items: center; height: 0px; margin-left: 550px; margin-top: -60px;">
+    <script type="text/babel">
+  class Tugas3 extends React.Component {
+    render() {
+      const card = (
+        <div className="container">
+          <div className="row justify-content-center">
+          <div className="col-md-4">
+
+            <div className="card" style={{ width: '310px', backgroundColor: '#f9f9f9' }}>
+              <div className="card-body" style={{ padding: '50px', height: '380px', width:'400px' }}>
+  {/* Content of the card body goes here */}
+
+            
+           <div className="form-group">
+            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address" style={{ width: '210px',height:'50px' }} /><br />
+            <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" style={{ width: '210px', height: '50px' }} /><br />
+          <div className="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1"style={{ width: '13px', height: '13px' }} ></input>
+            <label className="form-check-label" htmlFor="exampleCheck1" style={{ fontSize: '13px', display: 'block', margintop: '45px' }}>Remember me</label>
+<div><br /></div>
+
+
+
+
+           
+    <button type="submit" className="btn btn-primary" style={{ width: '210px',margin:'-2px -25px' }}>Sign up</button>
+
+    <div style={{ borderTop: '1px solid black', margin: '20px -25px', width: '210px' }}></div>
+
+    <div className="text-muted text-right" style={{ fontSize: '11px', marginLeft: '-25px' }}>By clicking Sign up, you agree to the<br /> terms of use.</div>
+
+
+
+
+          </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+     </div>
+
+
+      );
+      return card;
+    
+    }
+  }
+  ReactDOM.render(<Tugas3 />, document.getElementById('app3')); 
+    </script>
+
+  </body>
+  </html>
+
+
+
+
+
