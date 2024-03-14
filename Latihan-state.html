@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POM Bensin</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQtwFspd3yD65VohhpuuCOmLASJC" crossorigin="anonymous" />
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    // React Component
+    class PomBensin extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          jenisBensin: 'premium',
+          hargaPerLiter: {
+            premium: 10000,
+            pertalite: 12000,
+            pertamax: 15000
+          },
+          jumlahLiter: 1,
+        };
+      }
+
+      updateHarga = (event) => {
+        const newJenisBensin = event.target.value;
+        this.setState({
+          jenisBensin: newJenisBensin,
+        });
+      };
+
+      updateJumlahLiter = (event) => {
+        const jumlahLiter = event.target.value;
+        this.setState({
+          jumlahLiter: jumlahLiter,
+        });
+      };
+
+      render() {
+        const totalHarga = this.state.hargaPerLiter[this.state.jenisBensin] * this.state.jumlahLiter;
+        return (
+          <div>
+            <h1>POM Bensin</h1>
+            <label htmlFor="jenisBensin">Jenis Bensin:</label>
+            <select
+              id="jenisBensin"
+              value={this.state.jenisBensin}
+              onChange={this.updateHarga}
+            >
+              <option value="premium">Premium</option>
+              <option value="pertalite">Pertalite</option>
+              <option value="pertamax">Pertamax</option>
+            </select>
+            <br />
+            <label htmlFor="jumlahLiter">Jumlah Liter:</label>
+            <input
+              type="number"
+              id="jumlahLiter"
+              value={this.state.jumlahLiter}
+              onChange={this.updateJumlahLiter}
+            />
+            <br />
+            <p>Total Harga: Rp {totalHarga}</p>
+          </div>
+        );
+      }
+    }
+
+    ReactDOM.render(<PomBensin />, document.getElementById('root'));
+  </script>
+</body>
+</html>

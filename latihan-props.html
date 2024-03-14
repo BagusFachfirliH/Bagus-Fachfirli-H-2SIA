@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POM Bensin</title>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQtwFspd3yD65VohhpuuCOmLASJC" crossorigin="anonymous" />
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    // Class Component ProductCard
+    class ProductCard extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          showPrice: false
+        };
+      }
+
+      togglePrice = () => {
+        this.setState(prevState => ({
+          showPrice: !prevState.showPrice
+        }));
+      }
+
+      render() {
+        return (
+          <div style={{border: '2px solid #ccc', borderRadius: '1px', padding: '10px', margin: '10px', maxWidth: '800px'}}>
+            <img src={this.props.imageUrl} alt={this.props.productName} style={{maxWidth: '100%', height: 'auto'}} />
+            <h3>{this.props.productName}</h3>
+            {this.state.showPrice && <p>Harga: Rp {this.props.price}</p>}
+            <button onClick={this.togglePrice} className="btn btn-primary">{this.state.showPrice ? 'Sembunyikan Harga' : 'Tampilkan Harga'}</button>
+          </div>
+        );
+      }
+    }
+
+    // Rendering ProductCard with different props
+    ReactDOM.render(
+      <div>
+        <ProductCard productName="Sepatu Nike" price={500000} imageUrl="https://s0.bukalapak.com/img/0727563872/w-1000/Sepatu_Nike_Air_Max_.jpg" />
+        <ProductCard productName="Tas Gucci" price={1500000} imageUrl="https://th.bing.com/th/id/OIP.Vg5p6-YfqjluHMNwkgiIDQHaHa?w=172&h=180&c=7&r=0&o=5&cb=11&pid=1.7" />
+        <ProductCard productName="Jam Tangan Rolex" price={10000000} imageUrl="https://th.bing.com/th/id/OIP.cHjtqDWLNFEUzFAr-2oQNAHaHa?w=197&h=197&c=7&r=0&o=5&cb=11&pid=1.7" />
+      </div>,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+</html>
